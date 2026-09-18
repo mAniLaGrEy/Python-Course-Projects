@@ -1,4 +1,4 @@
-from urllib.parse import urljoin
+import urllib.parse
 
 import requests
 from bs4 import BeautifulSoup
@@ -27,7 +27,7 @@ def spider_urls(url, keyword):
         for urls2 in urls:
             if urls2 not in visited_urls:
                 visited_urls.add(urls2)
-                url_join = urljoin(url, urls2)
+                url_join = urllib.parse.urljoin(url, urls2)
                 if keyword in url_join:
                     print(url_join)
                     spider_urls(url_join, keyword)
